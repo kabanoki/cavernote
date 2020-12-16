@@ -1,17 +1,20 @@
 import React from 'react';
+import HomeView from './views/Home';
+
+import {
+    HashRouter as Router,
+    Switch,
+    Route
+} from 'react-router-dom'
 
 export default function App() {
-    const title = "Hello World";
-    const enhancedTitle = title + " - React App!";
-
-    const sendNotification = () => {
-        electron.notificationApi.sendNotification('My custom message');
-    }
-
     return (
-        <>
-        <h1>{enhancedTitle}</h1>
-        <button onClick={sendNotification}>Send Notification</button>
-        </>
+        <Router>
+            <Switch>
+                <Route path="/">
+                    <HomeView></HomeView>
+                </Route>
+            </Switch>
+        </Router>
     )
 }
